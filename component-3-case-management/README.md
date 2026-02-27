@@ -1,4 +1,4 @@
-# [Component Name] 
+# Case Management
 **Owner:** [Member Name] 
 ## Description 
 [Brief description of what this component does] 
