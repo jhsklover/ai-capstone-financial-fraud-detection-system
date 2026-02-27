@@ -1,4 +1,4 @@
-# [Component Name] 
+# Anomaly Detection
 **Owner:** [Member Name] 
 ## Description 
 [Brief description of what this component does] 
