@@ -1,4 +1,4 @@
-# [Component Name] 
+# Dashboard
 **Owner:** [Member Name] 
 ## Description 
 [Brief description of what this component does] 
