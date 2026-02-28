@@ -44,7 +44,10 @@ week-03-lab-instructions.md
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-## Data Sources- **Primary data:** [What data will you use? Where does it come from?] - **Sample data:** [What sample/test data will you create or find?] - **Data format:** [CSV, JSON, API responses, etc.] 
+## Data Sources
+- **Primary data:** [What data will you use? Where does it come from?]
+- **Sample data:** [What sample/test data will you create or find?]
+- **Data format:** [CSV, JSON, API responses, etc.] 
 
 ## AI Capabilities 
 2026-02-23
