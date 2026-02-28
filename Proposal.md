@@ -18,13 +18,15 @@ The main users that will benefit form this system are fraud investigators, finan
 Diagram 
 
 ## Component Breakdown 
-### Component 1: [Transaction Ingestion] (Owner: [Jack Sklover])
+### Component 1: Transaction Ingestion
+Owner: Jack Sklover
 - **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
 - **Tools:** n8n, Airtable
 - **Input:** Raw transaction data with fields including timestamp, amount, account holder and ID, type of transaction
 - **Output:** Airtable records stored in an organized table with each field name and type mapping to the raw data provided, n8n workflow to ingest the records and parse the data, and then transfer the data into Airtable
 - **Standalone demo:** A sample CSV file can be uploaded into n8n, where the workflow that parses and organizes the data can be shown, followed by the data being inserted into Airtable. Before and after can be compared, for example, before the data enters Airtable versus after.
-### Component 2: [Anomaly Detection] (Owner: [Joshua Maldonado])-
+### Component 2: Anomaly Detection
+Owner: Joshua Maldonado
 - **Description:** Pattern analysis on transaction amounts, frequency, and categories and LLM-powered explanation generation
 - **Tools:** n8n, Groq, Hugging Face
 - **Input:** [What data it receives]
