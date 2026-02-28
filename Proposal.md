@@ -18,7 +18,6 @@ The target users of this system are fraud investigators, financial analysts, and
 Diagram 
 
 ## Component Breakdown 
-week-03-lab-instructions.md
 ### Component 1: [Transaction Ingestion] (Owner: [Jack Sklover])
 - **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
 - **Tools:** n8n, Airtable
