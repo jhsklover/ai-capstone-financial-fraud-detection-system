@@ -21,26 +21,26 @@ The target users of this system are fraud investigators, financial analysts, and
 ## Component Breakdown 
 week-03-lab-instructions.md
 ### Component 1: [Transaction Ingestion] (Owner: [Jack Sklover])
-- **Description:** [What this component does]
-- **Tools:** [n8n, Airtable, Hugging Face, etc.]
+- **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
+- **Tools:** n8n, Airtable
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
 ### Component 2: [Anomaly Detection] (Owner: [Joshua Maldonado])-
-- **Description:** [What this component does]
-- **Tools:** [n8n, Airtable, Hugging Face, etc.]
+- **Description:** Pattern analysis on transaction amounts, frequency, and categories and LLM-powered explanation generation
+- **Tools:** n8n, Groq, Hugging Face
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
 ### Component 3: [Case Management] (Owner: [Tejbir Singh])
-- **Description:** [What this component does]
-- **Tools:** [n8n, Airtable, Hugging Face, etc.]
+- **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
+- **Tools:** n8n, Airtable
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
 ### Component 4: [Dashboard] (Owner: [Jack Sklover])
-- **Description:** [What this component does]
-- **Tools:** [n8n, Airtable, Hugging Face, etc.]
+- **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-dowl
+- **Tools:** Streamlit
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
