@@ -20,7 +20,7 @@ and need automated triage to focus on critical threats."]
 ## Component Breakdown 
 week-03-lab-instructions.md
 ### Component 1: [Name] (Owner: [Member Name])- **Description:** [What this component does] - **Tools:** [n8n, Airtable, Hugging Face, etc.] - **Input:** [What data it receives] - **Output:** [What data it produces] - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 2: [Name] (Owner: [Member Name])- **Description:** [What this component does] - **Tools:** [Tools used] - **Input:** [What data it receives] - **Output:** [What data it produces] - **Standalone demo:** [How this component can be demonstrated independently] 
+### Component 2: [Name] (Owner: [Joshua Maldonado])- **Description:** [What this component does] - **Tools:** [Tools used] - **Input:** [What data it receives] - **Output:** [What data it produces] - **Standalone demo:** [How this component can be demonstrated independently] 
 ### Component 3: [Name] (Owner: [Member Name])- **Description:** [What this component does] - **Tools:** [Tools used] - **Input:** [What data it receives] - **Output:** [What data it produces] - **Standalone demo:** [How this component can be demonstrated independently] 
 ### Component 4: [Name] (Owner: [Member Name])- **Description:** [What this component does] - **Tools:** [Tools used] - **Input:** [What data it receives] - **Output:** [What data it produces] - **Standalone demo:** [How this component can be demonstrated independently] 
 ## Data Sources- **Primary data:** [What data will you use? Where does it come from?] - **Sample data:** [What sample/test data will you create or find?] - **Data format:** [CSV, JSON, API responses, etc.] 
