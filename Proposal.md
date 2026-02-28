@@ -1,6 +1,11 @@
-Component 2] | @[username] | 
-| [Name 3] | [Component 3] | @[username] | 
-| [Name 4] | [Component 4] | @[username] | 
+# [Project Name] 
+## Team Members 
+| Name | Role/Component | GitHub Username | 
+|------|---------------|-----------------| 
+| Jack Sklover | Transaction Ingestion | @jacksklover | 
+| Joshua Maldonado | Anomaly Detection | @joshuam0506 | 
+| Tejbir Singh | Case Management | @[username] | 
+| Jack Sklover | Dashboard | @jacksklover | 
 ## Problem Statement 
 [2-3 sentences describing the problem your project solves. 
 Who experiences this problem? Why does it matter? 
@@ -48,4 +53,4 @@ instructions"]
 | 7-9 | Add LLM/agent capabilities, refine AI processing | 
 | 10-12 | Integration, error handling, dashboard/UI | 
 | 13-14 | Polish, documentation, demo preparation | 
-| 15 | Final presentation |
+| 15 | Final presentation | 
