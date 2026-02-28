@@ -1,4 +1,4 @@
-# [Financial Fraud Detection System] 
+# Financial Fraud Detection System
 
 ## Team Members
 | Name | Role/Component | GitHub Username | 
