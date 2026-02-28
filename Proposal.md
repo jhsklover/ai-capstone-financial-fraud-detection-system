@@ -15,8 +15,7 @@ With the access to the Internet and digital banking being at an all-time high, f
 The target users of this system are fraud investigators, financial analysts, and security teams working within banks and digital financial institutions. These professionals are responsible for monitoring transaction activity, identifying suspicious behavior, and managing fraud investigations. By using this system, they will be able to quickly detect potentially fraudulent transactions, reduce false positives, and improve the efficiency and accuracy of fraud detection. Additionally, financial institutions themselves benefit from this system, as it helps protect their customers, reduce financial losses, and maintain trust in their digital banking services.
 
 ## Architecture 
-![Architecture Diagram](docs/architecture.png) 
-4 / 17
+Diagram 
 
 ## Component Breakdown 
 week-03-lab-instructions.md
