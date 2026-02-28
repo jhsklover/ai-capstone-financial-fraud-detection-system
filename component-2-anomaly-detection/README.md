@@ -1,5 +1,5 @@
 # Anomaly Detection
-**Owner:** [Member Name] 
+**Owner:** [Joshua M.] 
 ## Description 
 [Brief description of what this component does] 
 ## Status
