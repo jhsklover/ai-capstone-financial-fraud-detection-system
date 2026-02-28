@@ -18,25 +18,29 @@ The main users that will benefit form this system are fraud investigators, finan
 Diagram 
 
 ## Component Breakdown 
-### Component 1: [Transaction Ingestion] (Owner: [Jack Sklover])
+### Component 1: Transaction Ingestion 
+Owner: Jack Sklover 
 - **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
 - **Tools:** n8n, Airtable
 - **Input:** The input will be raw transaction data that includes fields such as: timestamps, transaction amount and currency type, account holder name/ID, type of transaction, payment recipient, and short description if applicable. The raw data will be stored in a CSV file.
 - **Output:** The output will result in Airtable records that are organized into a table displaying transactions, with each field being mapped from the raw data into a normalized schema. The n8n workflow that is created will accurately ingest, parse, and transport the data into Airtable.
 - **Standalone demo:** A sample CSV file will be uploaded into n8n which demonstrates how the data is ingested. Then, the workflow will display how the raw data is parsed into streamlined and normalized data, which will then be transported into Airtable. Before and after comparisons will be provided to show how the workflow takes raw data and transforms it into the Airtable dataset.
-### Component 2: [Anomaly Detection] (Owner: [Joshua Maldonado])-
+### Component 2: Anomaly Detection 
+Owner: Joshua Maldonado
 - **Description:** Pattern analysis on transaction amounts, frequency, and categories and LLM-powered explanation generation
 - **Tools:** n8n, Groq, Hugging Face
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 3: [Case Management] (Owner: [Tejbir Singh])
+### Component 3: Case Management
+Owner: Tejbir Singh
 - **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
 - **Tools:** n8n, Airtable
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 4: [Dashboard] (Owner: [Jack Sklover])
+### Component 4: Dashboard 
+Owner: Jack Sklover
 - **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-down
 - **Tools:** Streamlit
 - **Input:** The dashboard component will receive the structured tables from the three previous components, including fraud alerts from the anomaly detection workflow, case management data, and transaction history; this data will be sourced from Airtable, and APIs used during the prior parts of the project.
