@@ -1,11 +1,13 @@
 # [Financial Fraud Detection System] 
-## Team Members 
+
+## Team Members
 | Name | Role/Component | GitHub Username | 
 |------|---------------|-----------------| 
 | Jack Sklover | Transaction Ingestion | @jacksklover | 
 | Joshua Maldonado | Anomaly Detection | @joshuam0506 | 
 | Tejbir Singh | Case Management | @[username] | 
 | Jack Sklover | Dashboard | @jacksklover | 
+
 ## Problem Statement 
 With the access to the Internet and digital banking being at an all-time high, financial companies are receiving a constant influx of transactions, which impedes their ability to properly detect and manage fraudulent activity. The potential of misdiagnosing a non-suspicious action such as a large withdrawal or purchase is an issue, which sometimes wrongly blocks innocent account holders instead of detecting those who are committing fraudulent acts. To combat this, a system which can reliably detect financial fraud and target those who commit fraud is exceedlingly important so that suspicious behavior can actively be distinguished from non-fraudulent activity; this will not only help the accuracy, but will also instill trust with users of these financial services as the actual fraud will be targeted. 
 ## Target Users 
