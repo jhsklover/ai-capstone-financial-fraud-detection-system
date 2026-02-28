@@ -18,38 +18,35 @@ The main users that will benefit form this system are fraud investigators, finan
 Diagram 
 
 ## Component Breakdown 
-### Component 1: Transaction Ingestion
-Owner: Jack Sklover
+### Component 1: [Transaction Ingestion] (Owner: [Jack Sklover])
 - **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
 - **Tools:** n8n, Airtable
-- **Input:** Raw transaction data with fields including timestamp, amount, account holder and ID, type of transaction
-- **Output:** Airtable records stored in an organized table with each field name and type mapping to the raw data provided, n8n workflow to ingest the records and parse the data, and then transfer the data into Airtable
-- **Standalone demo:** A sample CSV file can be uploaded into n8n, where the workflow that parses and organizes the data can be shown, followed by the data being inserted into Airtable. Before and after can be compared, for example, before the data enters Airtable versus after.
-### Component 2: Anomaly Detection
-Owner: Joshua Maldonado
+- **Input:** The input will be raw transaction data that includes fields such as: timestamps, transaction amount and currency type, account holder name/ID, type of transaction, payment recipient, and short description if applicable. The raw data will be stored in a CSV file.
+- **Output:** The output will result in Airtable records that are organized into a table displaying transactions, with each field being mapped from the raw data into a normalized schema. The n8n workflow that is created will accurately ingest, parse, and transport the data into Airtable.
+- **Standalone demo:** A sample CSV file will be uploaded into n8n which demonstrates how the data is ingested. Then, the workflow will display how the raw data is parsed into streamlined and normalized data, which will then be transported into Airtable. Before and after comparisons will be provided to show how the workflow takes raw data and transforms it into the Airtable dataset.
+### Component 2: [Anomaly Detection] (Owner: [Joshua Maldonado])-
 - **Description:** Pattern analysis on transaction amounts, frequency, and categories and LLM-powered explanation generation
 - **Tools:** n8n, Groq, Hugging Face
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 3: Case Management 
-Owner: Tejbir Singh
+### Component 3: [Case Management] (Owner: [Tejbir Singh])
 - **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
 - **Tools:** n8n, Airtable
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 4: Dashboard
-Owner: Jack Sklover 
-- **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-dowl
+### Component 4: [Dashboard] (Owner: [Jack Sklover])
+- **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-down
 - **Tools:** Streamlit
-- **Input:** [What data it receives]
-- **Output:** [What data it produces]
-- **Standalone demo:** [How this component can be demonstrated independently] 
+- **Input:** The dashboard component will receive the structured tables from the three previous components, including fraud alerts from the anomaly detection workflow, case management data, and transaction history; this data will be sourced from Airtable, and APIs used during the prior parts of the project.
+- **Output:** The data will be displayed visually in a dashboard encompassing all of the data, with features such as graphs and charts to show trends, risk scores, and where most fraudulent alerts occur in terms of transaction statistics; Streamlit will also compute metrics. UI elements will be included like dropdowns, buttons, et cetera to enhance the UI/UX of the dashboard. The Streamlit dashboard will act as a webpage.
+- **Standalone demo:** To display how this component works, CSVs for the prior three components' datasets with fixed data can be loaded into the dashboard, where then the dashboard renders the data. The dashboard can then be ran, where the data can be displayed and interacted with to show its full functionality.
+
 ## Data Sources
-- **Primary data:** [What data will you use? Where does it come from?]
-- **Sample data:** [What sample/test data will you create or find?]
-- **Data format:** [CSV, JSON, API responses, etc.] 
+- **Primary data:** Transaction records with fields such as timestamp, amount, type, account ID/holder name, description, sourced from CSV uploads and webhook feeds. Outputs from anomaly detection and case management records will also be primary data.
+- **Sample data:** Randomized sample data for transactions, and mock anomaly alerts and case records; these can either be written from scratch or randomly generated.
+- **Data format:** CSV, JSON, Airtable tables.
 
 ## AI Capabilities 
 2026-02-23
