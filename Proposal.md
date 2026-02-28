@@ -1,4 +1,4 @@
-# [Project Name] 
+# [Financial Fraud Detection System] 
 ## Team Members 
 | Name | Role/Component | GitHub Username | 
 |------|---------------|-----------------| 
