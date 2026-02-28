@@ -30,13 +30,15 @@ Diagram
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 3: [Case Management] (Owner: [Tejbir Singh])
+### Component 3: Case Management 
+Owner: Tejbir Singh
 - **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
 - **Tools:** n8n, Airtable
 - **Input:** [What data it receives]
 - **Output:** [What data it produces]
 - **Standalone demo:** [How this component can be demonstrated independently] 
-### Component 4: [Dashboard] (Owner: [Jack Sklover])
+### Component 4: Dashboard
+Owner: Jack Sklover 
 - **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-dowl
 - **Tools:** Streamlit
 - **Input:** [What data it receives]
