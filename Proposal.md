@@ -61,18 +61,14 @@ Face distilbert] |
 | [e.g., Summarization] | [e.g., Summarize incident reports] | [e.g., Groq LLaMA] 
 | 
 ## Success Criteria
-1. [Measurable criterion, e.g., "System correctly classifies 8 out of 10 test 
-alerts"] 
-2. [Measurable criterion, e.g., "Data pipeline processes all records within 2 
-minutes"] 
-3. [Measurable criterion, e.g., "Dashboard displays all enriched records with 
-filtering"] 
-4. [Measurable criterion, e.g., "All 4 components integrate and exchange data 
-correctly"] 
-5 / 17
-week-03-lab-instructions.md
-5. [Measurable criterion, e.g., "Each component has its own README with setup 
-instructions"] 
+1. The ingestion workflow should normalize and store the data for each incoming transaction accurately, and within three minutes of completion.
+2. Anomaly detection should correctly flag at least 80 percent of sample transactions that have known anomalies.
+3. Hugging Face and Groq API should return classifications as well as confidence scores for every transaction submitted.
+4. The Case Record Airtable database should correctly store all anomalies with correct fields.
+5. The Streamlit dashboard should display all of the fraud case records and alert records; the data displayed should be accurate, including risk levels and timestamps.
+6. All components should flow without data loss or exceptions, allowing the completion of the process to occur successfully (ingestion -> anomaly detection -> case management -> dashboard -> analyst interaction)
+7. To test the end-to-end process, a batch of at least 50 test transactions should be processed successfully through the entire pipeline. Anomalies should be correctly flagged, and data should be accurately represented and stored.
+
 ## Timeline 
 | Week | Milestone | 
 |------|-----------| 
