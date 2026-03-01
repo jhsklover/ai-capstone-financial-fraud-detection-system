@@ -15,7 +15,7 @@ With Internet access and digital banking being at an all-time high as technology
 The target users for this project will be fraud investigators, financial analysts, and security teams that work within banking and digital financial companies. Those who are responsible for identifying suspicious account activity and mananging fraud investigations will benefit from the system as it grants the ability to detect potentially fraudulent transactions, reduce false positives, and improve efficiency to both accurately and quickly detect financial fraud. Financial institutions also benefit from this system as it protects the assets and money of their customers, thereby instilling trust.
 
 ## Architecture 
-![Architecture Diagram](architecture.png) 
+![Architecture Diagram](docs/architecture.png)  
 
 ## Component Breakdown 
 ### Component 1: Transaction Ingestion 
