@@ -20,10 +20,10 @@ The target users for this project will be fraud investigators, financial analyst
 ## Component Breakdown 
 ### Component 1: Transaction Ingestion 
 Owner: Jack Sklover 
-- **Description:** n8n workflow parsing transaction feeds, account activity, and data normalization
+- **Description:** n8n workflow that parses transaction feeds and normalizes them, then stores the records in an Airtable transaction base.
 - **Tools:** n8n, Airtable
-- **Input:** The input will be raw transaction data that includes fields such as: timestamps, transaction amount and currency type, account holder name/ID, type of transaction, payment recipient, and short description if applicable. The raw data will be stored in a CSV file.
-- **Output:** The output will result in Airtable records that are organized into a table displaying transactions, with each field being mapped from the raw data into a normalized schema. The n8n workflow that is created will accurately ingest, parse, and transport the data into Airtable.
+- **Input:** The input will be raw transaction data that includes fields such as timestamps, transaction amount and currency type, account holder name/ID, type of transaction, payment recipient, and short description if applicable. The raw data will be stored in a CSV file.
+- **Output:** The output will result in normalized Airtable records that are organized into a table displaying transactions, with each field being mapped from the raw data into a normalized schema. The n8n workflow that is created will accurately ingest, parse, and transport the data into Airtable.
 - **Standalone demo:** A sample CSV file will be uploaded into n8n which demonstrates how the data is ingested. Then, the workflow will display how the raw data is parsed into streamlined and normalized data, which will then be transported into Airtable. Before and after comparisons will be provided to show how the workflow takes raw data and transforms it into the Airtable dataset.
 ### Component 2: Anomaly Detection 
 Owner: Joshua Maldonado
@@ -43,14 +43,14 @@ Owner: Tejbir Singh
 Owner: Jack Sklover
 - **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-down
 - **Tools:** Streamlit
-- **Input:** The dashboard component will receive the structured tables from the three previous components, including fraud alerts from the anomaly detection workflow, case management data, and transaction history; this data will be sourced from Airtable, and APIs used during the prior parts of the project.
+- **Input:** The dashboard component will receive the structured tables from the three previous components, including fraud alerts from the anomaly detection workflow, case management data, and transaction history. The data directly comes from the airtable case record database from the previous component, but indirectly stems from all of the prior parts of the project.
 - **Output:** The data will be displayed visually in a dashboard encompassing all of the data, with features such as graphs and charts to show trends, risk scores, and where most fraudulent alerts occur in terms of transaction statistics; Streamlit will also compute metrics. UI elements will be included like dropdowns, buttons, et cetera to enhance the UI/UX of the dashboard. The Streamlit dashboard will act as a webpage.
 - **Standalone demo:** To display how this component works, CSVs for the prior three components' datasets with fixed data can be loaded into the dashboard, where then the dashboard renders the data. The dashboard can then be ran, where the data can be displayed and interacted with to show its full functionality.
 
 ## Data Sources
-- **Primary data:** Transaction records with fields such as timestamp, amount, type, account ID/holder name, description, sourced from CSV uploads and webhook feeds.
-- **Sample data:** Simulated transaction records, similar to Week 2 lab's fraud investigation data.
-- **Data format:** CSV files, JSON files, Airtable bases.
+- **Primary data:** Raw transaction records with fields including timestamp, monetary amount and currency, transaction type, account holder and ID, and a short description. The data will be sourced from CSV file uploads.
+- **Sample data:** Similarly to Week 2's lab concerning fraud investigation data, simulated transaction records will be used.
+- **Data format:** CSV files, JSON files, Airtable bases. Ultimately, all of the data will end up being displayed in a dashboard using Streamlit.
 
 ## AI Capabilities 
 | Capability | Purpose | Model/API | 
