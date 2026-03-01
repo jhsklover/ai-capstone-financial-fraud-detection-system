@@ -27,11 +27,10 @@ Owner: Jack Sklover
 - **Standalone demo:** A sample CSV file will be uploaded into n8n which demonstrates how the data is ingested. Then, the workflow will display how the raw data is parsed into streamlined and normalized data, which will then be transported into Airtable. Before and after comparisons will be provided to show how the workflow takes raw data and transforms it into the Airtable dataset.
 ### Component 2: Anomaly Detection 
 Owner: Joshua Maldonado
-- **Description:** Pattern analysis on transaction amounts, frequency, and categories and LLM-powered explanation generation
-- **Tools:** n8n, Groq, Hugging Face
-- **Input:** [What data it receives]
-- **Output:** [What data it produces]
-- **Standalone demo:** [How this component can be demonstrated independently] 
+- **Description:** The component in this stage will  identifie unusual financial transactions by making comparations with each new transaction against the account’s historical behavior, it will detect abnormalities inside of it own system based on things like the amount, transaction frequency, patterns, and timing, the system will obviously assign a risk score and flags, so that way the transactions that are made can significantly vary from the user’s normal spending profile.
+- **Input:** The input will be normalized transaction records recovered from Airtable, every transaction will include fields like: transaction_id, account_holder_id, timestamp, transaction_amount, transaction_type, merchant or recipient, name, category. This specific part of the component will also access historical transactions from the account to create a baseline of normal activity, showing average spending amount, transaction frequency, and regular purchases merchant.
+- **Output:** The output will be obviously a detection of anomaly analysis result for each transaction, this result will include: anomaly_score (numerical value representing level of abnormality), anomaly_flag (Normal or Suspicious), risk_level (Low, Medium, High), anomaly_reason (brief explanation of what triggered the anomaly), these results can and will be stored in Airtable and can be used by other components or analysts to check anything that could possibly be suspicious transactions.
+- **Standalone demo:** The demo will use example alerts stored in Airtable with different levels of seriousness, confidence, and descriptions, this system will read each alert and compare it to what is normally expected, the after that if the system detects something that could look unusual or more dangerous than normal, the system will give it a higher abnormality score and mark it as risky, now if it looks normal it will be marked as safe, after the analysis the results will be saved in Airtable, where users can clearly see which alerts are normal and which ones need attention. 
 ### Component 3: Case Management
 Owner: Tejbir Singh
 - **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
