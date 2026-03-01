@@ -62,12 +62,10 @@ Owner: Jack Sklover
 
 ## Success Criteria
 1. The ingestion workflow should normalize and store the data for each incoming transaction accurately, and within three minutes of completion.
-2. Anomaly detection should correctly flag at least 80 percent of sample transactions that have known anomalies.
-3. Hugging Face and Groq API should return classifications as well as confidence scores for every transaction submitted.
-4. The Case Record Airtable database should correctly store all anomalies with correct fields.
-5. The Streamlit dashboard should display all of the fraud case records and alert records; the data displayed should be accurate, including risk levels and timestamps.
-6. All components should flow without data loss or exceptions, allowing the completion of the process to occur successfully (ingestion -> anomaly detection -> case management -> dashboard -> analyst interaction)
-7. To test the end-to-end process, a batch of at least 50 test transactions should be processed successfully through the entire pipeline. Anomalies should be correctly flagged, and data should be accurately represented and stored.
+2. Anomaly detection should correctly flag at least 80 percent of sample transactions that have known anomalies. Hugging Face and Groq API should return classifications as well as confidence scores for 100% of transactions submitted.
+3. The Case Record Airtable database should correctly store all anomalies with correct fields.
+4. The Streamlit dashboard should display all of the fraud case records and alert records; the data displayed should be accurate, including risk levels and timestamps.
+5. To test the end-to-end process, a batch of at least 50 test transactions should be processed successfully through the entire pipeline. Anomalies should be correctly flagged, and data should be accurately represented and stored.
 
 ## Timeline 
 | Week | Milestone | 
