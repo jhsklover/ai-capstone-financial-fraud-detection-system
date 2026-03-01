@@ -56,10 +56,10 @@ Owner: Jack Sklover
 2026-02-23
 | Capability | Purpose | Model/API | 
 |-----------|---------|-----------| 
-| Transaction Classification | Classify each transaction as either normal, or at risk of being fraudulent. | Hugging Face dslim/bert-large-NER | 
-| Anomaly Scoring/Pattern Analysis | Assign risk scores for each transaction | Groq LLaMA |
-| Pattern Analysis and Explanation | Analysis of transaction frequency, amounts, and anomaly categories. LLM will generate explanations. | Groq LLaMA |
-| Estimating Confidence | Produce a confidence score for each classification | Hugging Face/Groq API |
+| Transaction Classification | Provide a classification for each transaction: either normal or at risk of being fraudulent. | Hugging Face dslim/bert-large-NER | 
+| Anomaly Scoring/Pattern Analysis | Assign risk scores for each transaction. | Groq LLaMA |
+| Pattern Analysis and Explanation | Analysis of transaction frequency, amounts, and anomaly categories; an LLM will then generate readable explanations. | Groq LLaMA |
+| Estimating Confidence | Produce a confidence score for each classification. | Hugging Face/Groq API |
 
 ## Success Criteria
 1. The ingestion workflow should normalize and store the data for each incoming transaction accurately, and within three minutes of completion.
