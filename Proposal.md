@@ -59,7 +59,7 @@ Owner: Jack Sklover
 | Transaction Classification | Classify each transaction as either normal, or at risk of being fraudulent. | Hugging Face dslim/bert-large-NER | 
 | Anomaly Scoring/Pattern Analysis | Assign risk scores for each transaction | Groq LLaMA |
 | Estimating Confidence | Produce a confidence score for each classification | Hugging Face/Groq API |
-| Generating Alerts | Detected anomalies will have generated alerts using AI predictions and custom fraud criteria | AI outputs/Criteria |## Success Criteria
+| Generating Alerts | Detected anomalies will have generated alerts using AI predictions and custom fraud criteria | AI predictions combined with custom rules |## Success Criteria
 1. The ingestion workflow should normalize and store the data for each incoming transaction accurately, and within three minutes of completion.
 2. Anomaly detection should correctly flag at least 80 percent of sample transactions that have known anomalies.
 3. Hugging Face and Groq API should return classifications as well as confidence scores for every transaction submitted.
