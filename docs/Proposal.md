@@ -9,12 +9,10 @@
 | Jack Sklover | Dashboard | @jacksklover | 
 
 ## Problem Statement 
-&nsbp; Poopaoapapapa
-
-With the access to the Internet and digital banking being at an all-time high, financial companies are receiving a constant influx of transactions, which impedes their ability to properly detect and manage fraudulent activity. The potential of misdiagnosing a non-suspicious action such as a large withdrawal or purchase is an issue, which sometimes wrongly blocks innocent account holders instead of detecting those who are committing fraudulent acts. To combat this, a system which can reliably detect financial fraud and target those who commit fraud is exceedlingly important so that suspicious behavior can actively be distinguished from non-fraudulent activity; this will not only help the accuracy, but will also instill trust with users of these financial services as the actual fraud will be targeted. 
+With Internet access and digital banking being at an all-time high as technology evolves, financial companies are receiving a constant influx of transactions, impeding their ability to properly detect and manage fraudulent activity. The potential of misdiagnosing a non-suspicious action such as a large withdrawal or purchase is an issue, which can wrongly block innocent account holders instead of detecting under-the-radar fraudulent acts. To combat these issues, a system that can reliably detect financial fraud and target those who commit fraud is exceedingly important to ensure suspicious behavior can actively be distinguished from non-fraudulent activity; this will not only make the process more accurate, but will also instill trust with users of financial services if fraud is accurately detected.
 
 ## Target Users 
-The system will be geared toward fraud investigators, financial analysts, and security teams working within banks and digital financial institutions. Those who are responsible for identifying suspicious account activity and managing fraud investigations will benefit from the system since it will grant the ability to detect potentially fraudulent transactions, reduce false fraud alerts, and improve efficiency to both accurately and quickly detect fiancial fraud. Financial institutions will benefit from this as it protects the assets and money of their customers.
+The target users for this project will be fraud investigators, financial analysts, and security teams that work within banking and digital financial companies. Those who are responsible for identifying suspicious account activity and mananging fraud investigations will benefit from the system as it grants the ability to detect potentially fraudulent transactions, reduce false positives, and improve efficiency to both accurately and quickly detect financial fraud. Financial institutions also benefit from this system as it protects the assets and money of their customers, thereby instilling trust.
 
 ## Architecture 
 ![Architecture Diagram](docs/architecture.png) 
