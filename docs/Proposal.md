@@ -33,11 +33,11 @@ Owner: Joshua Maldonado
 - **Standalone demo:** The demo will use example alerts stored in Airtable with different levels of seriousness, confidence, and descriptions, this system will read each alert and compare it to what is normally expected, the after that if the system detects something that could look unusual or more dangerous than normal, the system will give it a higher abnormality score and mark it as risky, now if it looks normal it will be marked as safe, after the analysis the results will be saved in Airtable, where users can clearly see which alerts are normal and which ones need attention. 
 ### Component 3: Case Management
 Owner: Tejbir Singh
-- **Description:** n8n workflow creating investigation cases with risk scores and escalation rules based on thresholds
+- **Description:** This componenet operationalizes fraud detection results by transforming flagged transactions into structured investigation workflows. Utilizing n&n, the system will automatically create cases cases for transactions marked as suspicious, assign a priority level based on the risk score, and apply escalation based on established thresholds. This workflow manages the full investigation lifecycle, track status changes, and ensures traceability through structured cases record stored in Airtable.
 - **Tools:** n8n, Airtable
-- **Input:** [What data it receives]
-- **Output:** [What data it produces]
-- **Standalone demo:** [How this component can be demonstrated independently] 
+- **Input:** The case management component receives flagged trasnactions from the anomaly detection system, including the transaction ID, the account holder ID, the anomaly score, risk level, anaomaly reason, and other metadata (timestamp, transaction type, etc). Only transactions exceeding predefined anomaly thresholds trigger case generation in this component. 
+- **Output:** This component produces a structrued investigation case stored in an Airtable case management table. Each case will include the unique ID, transaction ID, computed priority tier, escalation flag, current status, and a timestamped audit trail of workflow actions. If escalation conditions are met, the workflow will generate automated notifications to simulate real-world fraud response procedures. 
+- **Standalone demo:** To demonstrate this component, a dataset of pre-flagged suspicious transactions with varying anomaly scores can be loaded into Airtable. Triggering the n&n workflow will automatically generate investigation cases, assign priority tiers according to risk thresholds, and simulate escalation for high-risk records. The demo will show case creation, prioritization logic, and lifecycle tracking. 
 ### Component 4: Dashboard 
 Owner: Jack Sklover
 - **Description:** Streamlit app showing fraud alerts, investigation queue, and trend analytics with drill-down
