@@ -48,12 +48,11 @@ Owner: Jack Sklover
 - **Standalone demo:** To display how this component works, CSVs for the prior three components' datasets with fixed data can be loaded into the dashboard, where then the dashboard renders the data. The dashboard can then be ran, where the data can be displayed and interacted with to show its full functionality.
 
 ## Data Sources
-- **Primary data:** Transaction records with fields such as timestamp, amount, type, account ID/holder name, description, sourced from CSV uploads and webhook feeds. Outputs from anomaly detection and case management records will also be primary data.
-- **Sample data:** Randomized sample data for transactions, and mock anomaly alerts and case records; these can either be written from scratch or randomly generated.
-- **Data format:** CSV, JSON, Airtable tables.
+- **Primary data:** Transaction records with fields such as timestamp, amount, type, account ID/holder name, description, sourced from CSV uploads and webhook feeds.
+- **Sample data:** Simulated transaction records, similar to Week 2 lab's fraud investigation data.
+- **Data format:** CSV files, JSON files, Airtable bases.
 
 ## AI Capabilities 
-2026-02-23
 | Capability | Purpose | Model/API | 
 |-----------|---------|-----------| 
 | Transaction Classification | Provide a classification for each transaction: either normal or at risk of being fraudulent. | Hugging Face dslim/bert-large-NER | 
