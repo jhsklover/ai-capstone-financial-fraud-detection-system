@@ -5,7 +5,7 @@
 |------|---------------|-----------------| 
 | Jack Sklover | Transaction Ingestion | @jacksklover | 
 | Joshua Maldonado | Anomaly Detection | @joshuam0506 | 
-| Tejbir Singh | Case Management | @[username] | 
+| Tejbir Singh | Case Management | @***unknown*** | 
 | Jack Sklover | Dashboard | @jacksklover | 
 
 ## Problem Statement 
