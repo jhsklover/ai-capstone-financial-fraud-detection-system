@@ -15,7 +15,7 @@ With the access to the Internet and digital banking being at an all-time high, f
 The main users that will benefit form this system are fraud investigators, financial analysts, and security teams working within banks and digital financial institutions, they will be responsible for many detection in the system like transaction activity, identifying suspicious behavior, and managing fraud investigations, using this system will be beneficial because it will be able to detect potentially fraudulent transactions, reduce false positives, and improve the efficiency in fraud detection. The financial intuitions will benefit because it will protect the assets and money of a lot of their own customers, making the bank more trustworthy by creating a safe system.
 
 ## Architecture 
-Diagram 
+![Architecture Diagram](docs/architecture.png) 
 
 ## Component Breakdown 
 ### Component 1: Transaction Ingestion 
