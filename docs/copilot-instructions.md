@@ -48,7 +48,7 @@ can give.]
 - **Next milestone:** Checkpoint 2 (Week 9) — one record end-to-end through all 
 components
 ## Repository Structure
-`.
+.
 └── ai-capstone-financial-fraud-detection-system/
     ├── component-1-transaction-ingestion/
     │   ├── transaction-ingestion.json
@@ -69,4 +69,4 @@ components
     │   ├── Proposal.md
     │   └── architecture.png
     ├── .gitignore
-    └── README.md`
+    └── README.md
