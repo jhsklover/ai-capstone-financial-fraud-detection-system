@@ -1,0 +1,251 @@
+{
+  "name": "Transaction_Ingestion",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "49066532-65ba-4621-818e-7259007af7ab",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/jhsklover/ai-capstone-financial-fraud-detection-system/main/data/transaction_records_test.csv",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "1ca47383-741d-4a83-ba60-06803a2ca2a4",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.all()[0].json.data;\n\nif (!raw || typeof raw !== \"string\") {\n  throw new Error(\"CSV not found as string in HTTP response\");\n}\n\nconst parseCSVLine = (line) => {\n  const result = [];\n  let current = \"\";\n  let inQuotes = false;\n\n  for (let char of line) {\n    if (char === '\"') {\n      inQuotes = !inQuotes;\n    } else if (char === ',' && !inQuotes) {\n      result.push(current);\n      current = \"\";\n    } else {\n      current += char;\n    }\n  }\n\n  result.push(current);\n  return result.map(v => v.trim().replace(/\"/g, ''));\n};\n\nconst csvText = raw.replace(/\\\\n/g, '\\n');\nconst lines = csvText.trim().split('\\n');\nconst headers = lines[0].split(',').map(h => h.trim());\n\nconst transactions = [];\n\nfor (let i = 1; i < lines.length; i++) {\n  const line = lines[i];\n  if (!line.trim()) continue;\n\n  const values = parseCSVLine(line);\n\n  const t = {};\n  headers.forEach((h, j) => {\n    t[h] = values[j];\n  });\n\n  const cleanedAmount = (t.amount || \"\").replace(/[^\\d.-]/g, '');\n  const parsedAmount = Number(cleanedAmount);\n\n  t.amount = Number.isFinite(parsedAmount) ? parsedAmount : null;\n  t.amount_valid = t.amount !== null;\n\n  const validTypes = [\"transfer\", \"deposit\", \"withdrawal\", \"payment\"];\n  t.transaction_type = (t.transaction_type || \"unknown\").toLowerCase();\n  t.type_valid = validTypes.includes(t.transaction_type);\n\n  t.ingested_at = t.ingested_at || \"\";\n\n  t.description =\n    `${t.transaction_type} transaction of $${t.amount ?? \"unknown\"} ` +\n    `from ${t.sender_id} to ${t.recipient_id}`;\n\n  t.status = \"pending\";\n\n  t.transaction_id = `TXN-${String(i).padStart(4, '0')}`;\n\n  transactions.push({ json: t });\n}\n\nreturn transactions;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "8944f357-2b2e-43cc-a22e-9c4524a7c3be",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appA3QrSBzsMn8Mdp",
+          "mode": "list",
+          "cachedResultName": "Financial Fraud Detection",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltjvfUBbabGJZRN",
+          "mode": "list",
+          "cachedResultName": "Transactions",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp/tbltjvfUBbabGJZRN"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "transaction_id": "={{ $json.transaction_id }}",
+            "timestamp": "={{ $json.ingested_at }}",
+            "sender_id": "={{ $json.sender_id }}",
+            "recipient_id": "={{ $json.recipient_id }}",
+            "amount": "={{ $json.amount }}",
+            "transaction_type": "={{ $json.transaction_type }}",
+            "description": "={{ $json.description }}",
+            "status": "={{ $json.status }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "transaction_id",
+              "displayName": "transaction_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sender_id",
+              "displayName": "sender_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recipient_id",
+              "displayName": "recipient_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "amount",
+              "displayName": "amount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transaction_type",
+              "displayName": "transaction_type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pending",
+                  "value": "pending"
+                },
+                {
+                  "name": "analyzed",
+                  "value": "analyzed"
+                },
+                {
+                  "name": "case_created",
+                  "value": "case_created"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        624,
+        0
+      ],
+      "id": "743735f8-a79f-4aa5-a21f-9cc7c0de5fde",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "tKHYBbNRekBW1gG8",
+          "name": "AIRTABLE API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0a78a1bf-82e6-4674-9246-d058410a3b02",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a69ec37954977b88a479ebfa185a30fc778ae1a13872bdbe9e26e7b8edafd875"
+  },
+  "id": "yVFIbYPpRyArScAA",
+  "tags": []
+}
