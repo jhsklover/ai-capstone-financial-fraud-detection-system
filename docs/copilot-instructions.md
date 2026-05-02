@@ -50,6 +50,7 @@ components
 ## Repository Structure
 .
 └── ai-capstone-financial-fraud-detection-system/
+
     ├── component-1-transaction-ingestion/
     │   ├── transaction-ingestion.json
     │   └── README.md
