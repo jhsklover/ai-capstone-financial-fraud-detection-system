@@ -1,8 +1,8 @@
 # Prompt Log — Jack Sklover
-**Project:** Financial Fraud Detection System
-**Team:** Jack Sklover, Joshua Maldonado & Tejbir Singh
-**My Component:** Transaction Ingestion & Dashboard
-**AI Tools Used:** GitHub Copilot; Airtable --
+- **Project:** Financial Fraud Detection System
+- **Team:** Jack Sklover, Joshua Maldonado & Tejbir Singh
+- **My Component:** Transaction Ingestion & Dashboard
+- **AI Tools Used:** GitHub Copilot; Airtable --
 
 ## How to Use This Log
 Add an entry for each significant AI interaction:- Copilot Chat conversations where you asked it to generate, explain, or debug 
