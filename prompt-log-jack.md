@@ -1,8 +1,9 @@
-# Prompt Log — [Your Name]
-**Project:** [Capstone project name]
-**Team:** [Team name]
-**My Component:** [Ingestion / AI Core / Specialist / Integration]
-**AI Tools Used:** GitHub Copilot [+ any others]--
+# Prompt Log — Jack Sklover
+**Project:** Financial Fraud Detection System
+**Team:** Jack Sklover, Joshua Maldonado & Tejbir Singh
+**My Component:** Transaction Ingestion & Dashboard
+**AI Tools Used:** GitHub Copilot; Airtable --
+
 ## How to Use This Log
 Add an entry for each significant AI interaction:- Copilot Chat conversations where you asked it to generate, explain, or debug 
 something- Moments where Copilot was wrong and you had to fix it (these are the most valuable 
