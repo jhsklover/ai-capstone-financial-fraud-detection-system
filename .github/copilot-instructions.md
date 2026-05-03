@@ -52,6 +52,8 @@ can give.]
 .
 └── ai-capstone-financial-fraud-detection-system/
 
+    ├── .github/
+    │   ├── copilot-instructions.md
     ├── component-1-transaction-ingestion/
     │   ├── transaction-ingestion.json
     │   └── README.md
