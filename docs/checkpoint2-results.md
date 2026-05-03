@@ -1,7 +1,11 @@
 # Checkpoint 2 Results
+
 **Date:** 2026/05/02
+
 **Team:** Jack Sklover, Joshua Maldonado & Tejbir Singh
+
 **Test record:** A test record depicting a financial transaction. This included that the transaction was a transfer, the IDs of the sender, receiver, and transaction, the timestamp, and the amount.
+
 ## End-to-End Status: PARTIAL
 ## Component-by-Component Results
 ### Ingestion
