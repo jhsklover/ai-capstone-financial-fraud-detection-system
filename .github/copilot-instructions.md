@@ -49,7 +49,6 @@ can give.]
 - **Known issues:** Full pipeline cannot be tested due to the incompleteness of the Case Management and Anomaly Detection workflows
 - **Next milestone:** Checkpoint 3 (Week 10) - All components completed and we can test more records 
 ## Repository Structure
-
 ai-capstone-financial-fraud-detection-system/
 ├── .github/
 │   └── copilot-instructions.md
@@ -82,4 +81,3 @@ ai-capstone-financial-fraud-detection-system/
     ├── copilot-working.png
     ├── successful-dashboard-test.png
     └── successful-ingestion-test.png
-
