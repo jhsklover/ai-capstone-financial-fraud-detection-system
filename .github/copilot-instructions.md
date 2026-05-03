@@ -70,5 +70,6 @@ can give.]
     ├── docs/
     │   ├── Proposal.md
     │   └── architecture.png
+    ├── screenshots/
     ├── .gitignore
     └── README.md
