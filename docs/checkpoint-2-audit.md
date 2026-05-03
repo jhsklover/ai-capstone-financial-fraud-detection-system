@@ -12,7 +12,7 @@
 
 ---
 
-### Critical Gaps (must fix before Checkpoint 2)
+### Critical Gaps (must fix before Checkpoint 3)
 - **Automated Data Processing:** Records currently sit in Airtable with no analysis or status updates.
     - **Action Item:** Create a "Pass-Through" workflow in n8n that triggers on a new Airtable record and populates the `anomaly_score`.
     - **Owner:** AI Core Lead.
