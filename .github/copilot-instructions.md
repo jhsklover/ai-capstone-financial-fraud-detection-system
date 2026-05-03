@@ -49,30 +49,37 @@ can give.]
 - **Known issues:** Full pipeline cannot be tested due to the incompleteness of the Case Management and Anomaly Detection workflows
 - **Next milestone:** Checkpoint 3 (Week 10) - All components completed and we can test more records 
 ## Repository Structure
-.
-└── ai-capstone-financial-fraud-detection-system/
 
-    ├── .github/
-    │   ├── copilot-instructions.md
-    ├── component-1-transaction-ingestion/
-    │   ├── transaction-ingestion.json
-    │   └── README.md
-    ├── component-2-anomaly-detection/
-    │   ├── anomaly-detection.json
-    │   └── README.md
-    ├── component-3-case-management/
-    │   ├── case-management.json
-    │   └── README.md
-    ├── component-4-dashboard/
-    │   └── README.md
-    ├── data/
-    │   ├── transactions.csv
-    │   ├── alert_records.csv
-    │   └── README.md
-    ├── docs/
-    │   ├── Proposal.md
-    │   └── architecture.png
-    │   ├── checkpoint2-audit.md
-    ├── screenshots/
-    ├── .gitignore
-    └── README.md
+ai-capstone-financial-fraud-detection-system/
+├── .github/
+│   └── copilot-instructions.md
+├── .gitignore
+├── README.md
+├── component-1-transaction-ingestion/
+│   ├── README.md
+│   └── transaction-ingestion-workflow.json
+├── component-2-anomaly-detection/
+│   └── README.md
+├── component-3-case-management/
+│   └── README.md
+├── component-4-dashboard/
+│   ├── README.md
+│   └── dashboard.py (draft)
+├── data/
+│   ├── README.md
+│   └── transaction_records_test.csv
+├── docs/
+│   ├── Proposal.md
+│   ├── architecture.png
+│   ├── checkpoint-2-audit.md
+│   ├── checkpoint1-audit.md
+│   └── checkpoint2-results.md
+├── prompt-log-jack.md
+└── screenshots/
+    ├── capstone-audit-report.png
+    ├── copilot-artifact.png
+    ├── copilot-instructions.png
+    ├── copilot-working.png
+    ├── successful-dashboard-test.png
+    └── successful-ingestion-test.png
+
