@@ -8,10 +8,10 @@
 **Add an entry for each significant AI interaction:**
 - Discussed with Copilot the next steps on how to progress with the project, which will start with creating the transaction data.
 - Asked Copilot to assist me in creating 20 sample test records to use for the transaction ingestion workflow.
-**Prompt:**
-> Generate transaction records since that's the starting point.
 
 ## 2025-05-02 — Generated 20 pieces of sample data
+**Prompt:**
+> Generate transaction records since that's the starting point.
 - **Context:** README.md, Audit to reference necessary fields
 - **Result:** Copilot produced 20 test records with when the record was ingested, the transaction amount, recipient and sender IDs, and the transaction types.
 - **Evaluation:** Yes, it was accurate and produced 20 records with the correct fields.
