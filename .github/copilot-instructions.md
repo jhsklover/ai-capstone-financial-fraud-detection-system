@@ -22,11 +22,13 @@ can give.]
 ### Transaction Records 
 | Field | Type | Written By | Status Values |
 |-------|------|-----------|---------------|
-| ingested_at | Date | Transaction Ingestion | ... |
-| amount | Single line text | Transaction Ingestion | ... |
-| transaction_type | Single-select | Transaction Ingestion | transfer, withdrawal, deposit, payment |
-| sender_id | Single line text | Transaction Ingestion | ... |
-| recipient_id | Single line text | Transaction Ingestion | ... |
+| transaction_id | Single-line text | Transaction Ingestion | ... |
+| timestamp | Date | Transaction Ingestion | ... |
+| sender_id | Single-line text | Transaction Ingestion | ... |
+| amount | Number | Transaction Ingestion | ... |
+| transaction_type | Single line text | Transaction Ingestion | ... |
+| description | Long text | Transaction Ingestion | ... |
+| status | Single select | Transaction Ingestion | pending, analyzed, case_created |
 ### Fraud Investigation Case Records
 | Field | Type | Written By | Status Values |
 |-------|------|-----------|---------------|
@@ -42,11 +44,10 @@ can give.]
 - Date fields end in _at- Boolean fields use is_ prefix
 
 ## Current State
-- **What's working:** Currently we do not have any of the components completed
-- **What's in progress:** Currently we do not have any of the components completed
-- **Known issues:** Currently we do not have any of the components completed
-- **Next milestone:** Checkpoint 2 (Week 9) — one record end-to-end through all 
-components
+- **What's working:** Transaction Ingestion workflow and Streamlit Dashboard
+- **What's in progress:** Case Management and Anomaly Detection being developed currently
+- **Known issues:** Full pipeline cannot be tested due to the incompleteness of the Case Management and Anomaly Detection workflows
+- **Next milestone:** Checkpoint 3 (Week 10) - All components completed and we can test more records 
 ## Repository Structure
 .
 └── ai-capstone-financial-fraud-detection-system/
