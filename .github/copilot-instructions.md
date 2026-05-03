@@ -72,6 +72,7 @@ can give.]
     ├── docs/
     │   ├── Proposal.md
     │   └── architecture.png
+    │   ├── checkpoint2-audit.md
     ├── screenshots/
     ├── .gitignore
     └── README.md
