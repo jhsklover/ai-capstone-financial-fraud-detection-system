@@ -1,11 +1,12 @@
 # Prompt Log — Tejbir Singh
 **Project:** $niper (Financial Fraud Detecion System)
 
-**Team:** Jack, Joshua, Tejbir
+**Team:** Jack Sklover, Joshua Maldonado, & Tejbir Singh
 
 **My Component:** Case Management
 
 **AI Tools Used:** GitHub Copilot, Airtable, n&n
+
 ---
 ## How to Use This Log
 Add an entry for each significant AI interaction:
