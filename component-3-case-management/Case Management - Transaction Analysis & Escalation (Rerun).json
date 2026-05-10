@@ -1,0 +1,426 @@
+{
+  "name": "Case Management - Transaction Analysis & Escalation (Rerun)",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        0
+      ],
+      "id": "2d7c3f5a-6594-4ec7-9b27-53addec3344b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appFj0Tqa3bf6G0TQ",
+          "mode": "list",
+          "cachedResultName": "Case Management - Transaction Analysis & Escalation",
+          "cachedResultUrl": "https://airtable.com/appFj0Tqa3bf6G0TQ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbljVtCzWMs1wuhXG",
+          "mode": "list",
+          "cachedResultName": "Transaction Records",
+          "cachedResultUrl": "https://airtable.com/appFj0Tqa3bf6G0TQ/tbljVtCzWMs1wuhXG"
+        },
+        "filterByFormula": "status = \"case_created\"",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "31cdd080-b146-4253-bc02-4e196e68ba95",
+      "name": "Search records",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fKgN2hbZr0TlFYt3",
+          "name": "Airtable Personal Access Token account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyze this financial transaction and generate a structured fraud case record.\n\nTRANSACTION TO ANALYZE:\n- Sender: {{ $json.fields.sender_id }}\n- Recipient: {{ $json.fields.recipient_id }}\n- Amount: ${{ $json.fields.amount }}\n- Type: {{ $json.fields.transaction_type }}\n- Description: {{ $json.fields.description }}\n- Anomaly Score: {{ $json.fields.anomaly_score }}\n- Risk Level: {{ $json.fields.risk_level }}\n- Reason: {{ $json.fields.anomaly_reason }}\n\nYOUR TASKS:\n1. Assign a Priority Tier: (LOW, MEDIUM, HIGH, or CRITICAL).\n2. Set Escalation Flag: (True if score > 0.8, else False).\n3. Status: Set as \"NEW, IN PROGRESS, DISMISSED, or RESOLVED\".\n4. Investigation Summary: Write 2 concise sentences explaining the risk.\n5. \"Be extremely detailed in the alert_description. Write at 3-4 sentences explaining the specific risk patterns and why an investigator should prioritize this.\"\n\nOUTPUT FORMAT:\nYou must provide the result as a data object with these keys: \npriority, escalation_flag, case_status, and investigation_summary.\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        176,
+        0
+      ],
+      "id": "be003749-22de-4658-a1da-c8cdb8cfa06b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        176,
+        176
+      ],
+      "id": "b9274305-755f-4f05-933f-835912866406",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "yIvk1gXi03YwNGTO",
+          "name": "Groq Chat Model"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appFj0Tqa3bf6G0TQ",
+          "mode": "list",
+          "cachedResultName": "Case Management - Transaction Analysis & Escalation",
+          "cachedResultUrl": "https://airtable.com/appFj0Tqa3bf6G0TQ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblFIZMkOaj0XFSWI",
+          "mode": "list",
+          "cachedResultName": "Fraud Investigation Case Records",
+          "cachedResultUrl": "https://airtable.com/appFj0Tqa3bf6G0TQ/tblFIZMkOaj0XFSWI"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "escalation_flag": "={{ $json.output.escalation_flag }}",
+            "confidence_score": "={{ $json.output.confidence_score }}",
+            "priority_tier": "={{ $json.output.priority_tier }}",
+            "risk_level": "={{ $('Search records').item.json.fields.risk_level }}",
+            "audit_trail": "={{ $json.output.audit_trail }}",
+            "created_at": "={{ $('Search records').item.json.createdTime }}",
+            "updated_at": "={{ $('Search records').item.json.fields.timestamp }}",
+            "alert_description": "={{ $json.output.alert_description }}",
+            "recipient_id  ": "={{ $('Search records').item.json.fields.recipient_id }}",
+            "sender_id": "={{ $('Search records').item.json.fields.sender_id }}",
+            "transaction_id": "={{ $('Search records').item.json.fields.transaction_id }}",
+            "case_id": "=",
+            "investigation_status": "IN PROGRESS"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "case_id",
+              "displayName": "case_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transaction_id",
+              "displayName": "transaction_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sender_id",
+              "displayName": "sender_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recipient_id  ",
+              "displayName": "recipient_id  ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "alert_description",
+              "displayName": "alert_description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "confidence_score",
+              "displayName": "confidence_score",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "risk_level",
+              "displayName": "risk_level",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "LOW",
+                  "value": "LOW"
+                },
+                {
+                  "name": "MEDIUM",
+                  "value": "MEDIUM"
+                },
+                {
+                  "name": "HIGH",
+                  "value": "HIGH"
+                },
+                {
+                  "name": "CRITICAL",
+                  "value": "CRITICAL"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "priority_tier",
+              "displayName": "priority_tier",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "LOW",
+                  "value": "LOW"
+                },
+                {
+                  "name": "MEDIUM",
+                  "value": "MEDIUM"
+                },
+                {
+                  "name": "HIGH",
+                  "value": "HIGH"
+                },
+                {
+                  "name": "CRITICAL",
+                  "value": "CRITICAL"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "escalation_flag",
+              "displayName": "escalation_flag",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "investigation_status",
+              "displayName": "investigation_status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "NEW",
+                  "value": "NEW"
+                },
+                {
+                  "name": "IN PROGRESS",
+                  "value": "IN PROGRESS"
+                },
+                {
+                  "name": "RESOLVED",
+                  "value": "RESOLVED"
+                },
+                {
+                  "name": "DISMISSED",
+                  "value": "DISMISSED"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "audit_trail",
+              "displayName": "audit_trail",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        528,
+        0
+      ],
+      "id": "273b60ef-6d89-43f5-add2-503ab49d1814",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "fKgN2hbZr0TlFYt3",
+          "name": "Airtable Personal Access Token account 6"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"priority_tier\": \"High\",\n  \"escalation_flag\": \"Yes\",\n  \"alert_description\": \"Transaction flagged due to unusual wire amount of $5000.\",\n  \"confidence_score\": 0.92,\n  \"audit_trail\": \"2026-05-09: AI assigned High priority based on 0.92 anomaly score.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        320,
+        176
+      ],
+      "id": "7a9f3bb5-02df-4dda-bf8f-d78f7635f35b",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search records": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a95111ac-fa37-4892-8fff-85efb6580e30",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a69ec37954977b88a479ebfa185a30fc778ae1a13872bdbe9e26e7b8edafd875"
+  },
+  "id": "FBjMbd2VZGms0zqH",
+  "tags": []
+}
