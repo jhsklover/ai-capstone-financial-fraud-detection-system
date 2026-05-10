@@ -53,3 +53,48 @@
 - **Evaluation:** It accurately instructed me on valuable metrics, such as number of anomalies, how to make graphs, and styling aspects.
 - **What I changed:** I was able to create the Dashboard and understand the features of it.
 - **What I learned:** How Streamlit operates.
+
+## 2025-05-09 — Used Copilot to help me design the error handling and which errors to focus on
+**Prompt:**
+> How do I accurately handle relevant errors?
+- **Context:** The pieces of data present for each alert, valid transaction types and amount formatting.
+- **Result:** Copilot helped me to design error handling and pick what errors are the most relevant to mitigate.
+- **Evaluation:** It helped me implement the error handling and successfully discard alerts which had invalid amounts or transaction types.
+- **What I changed:** I was able to add an "If" node and have the condition being that the transaction type and amount type were valid.
+- **What I learned:** How to use the "If" node in n8n.
+
+- ## 2025-05-09 — Used Copilot to inquire about the confidence threshold to use
+**Prompt:**
+> For financial fraud detection systems, what confidence score should I use as the threshold?
+- **Context:** The architecture of the system, such as the case management workflow and anomaly detection workflow.
+- **Result:** Copilot assisted me in picking a confidence threshold I was comfortable with, which was 0.8. Using 0.7 would leave way more room for error, and in a system which has to be as accurate as possible, leaving more room for error is unacceptable, prompting us to use 0.8. 
+- **Evaluation:** It accurately helped me to be more careful and choose a more optimal threshold.
+- **What I changed:** Initially, we planned to use 0.70 as the threshold but changed it to 0.80.
+- **What I learned:** Being careful is the best practice to prevent false positives and negatives.
+
+- ## 2025-05-09 — Used Copilot to generate case records which would purposely result in "error"
+**Prompt:**
+> Can you add test records which will result in an error to my CSV?
+- **Context:** What constitutes an error: invalid transaction type and amounts and what is accepted for those fields.
+- **Result:** Copilot helped me generate five test records which purposely threw an error.
+- **Evaluation:** It helped me to test the error detection functionality.
+- **What I changed:** The test records to purposely include errors.
+- **What I learned:** Implementing error handling and testing error handling are equally as important.
+
+## 2025-05-09 — Used Copilot to help me create a Kanban view for the pipeline status dashboard view
+**Prompt:**
+> How do I make a dashboard view to show the differences in pipeline status?
+- **Context:** The table I am using, the fields it has, and what statuses are available.
+- **Result:** Copilot informed me about Kanban views in Airtable, which displays data in a streamlined format. This helped me show the different pipeline statuses and how many records were present for each of them.
+- **Evaluation:** I was pleased with the information on the Kanban feature of Airtable.
+- **What I changed:** Adding a Kanban view for statuses in Airtable.
+- **What I learned:** About Kanban and the different functionalities in Airtable.
+
+## 2025-05-09 — Used Copilot to help me figure out next steps for the project
+**Prompt:**
+> What should we do next as a team for this project?
+- **Context:** What we've done already and covered in the previous labs, the presentation and video demo aspects.
+- **Result:** Copilot gave me a plan for the next couple of weeks on what to get done.
+- **Evaluation:** It helped me devise strategies to feel better about the status of the project.
+- **What I changed:** Communication with the team to not only work on my parts, but help the other members of the team where needed.
+- **What I learned:** How to maximize a short amount of time to get a large workload done and new strategies for teamwork.
