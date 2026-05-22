@@ -98,3 +98,7 @@
 - **Evaluation:** It helped me devise strategies to feel better about the status of the project.
 - **What I changed:** Communication with the team to not only work on my parts, but help the other members of the team where needed.
 - **What I learned:** How to maximize a short amount of time to get a large workload done and new strategies for teamwork.
+
+## Reflection
+
+Over the course of the project, my thinking changed as the process became more manageable. Once we got more work accomplished, there was more smoothness in the way my brain operated to accomplish meaningful work. I was able to create prompts to help me make the dashboard, create different views, and really analyze the metrics from the entire pipeline. This allowed me to understand the result behind my intention in the project.
