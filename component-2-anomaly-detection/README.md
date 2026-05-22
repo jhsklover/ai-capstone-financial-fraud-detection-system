@@ -6,19 +6,13 @@ This component analyzes financial transactions to detect suspicious or fraudulen
 It uses AI models to identify unusual transaction patterns.
 
 ## Tools
-n8n
-Hugging Face
-Groq
+- n8n
+- Groq
 
 ## Input
-Transaction data:
-- transaction amount
-- location
-- account ID
-- time
+The transaction data that was processed by the ingestion workflow. This excludes all transactions marked as "error" by the ingestion workflow.
 
 ## Output
-Fraud risk score
-Fraud explanation
+Anomaly score, risk level, anomaly reasoning, and confidence score.
 
 ## Standalone demo
