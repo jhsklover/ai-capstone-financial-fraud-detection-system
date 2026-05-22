@@ -1,0 +1,488 @@
+{
+  "name": "Transaction_Ingestion",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appA3QrSBzsMn8Mdp",
+          "mode": "list",
+          "cachedResultName": "Financial Fraud Detection",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltjvfUBbabGJZRN",
+          "mode": "list",
+          "cachedResultName": "Transactions",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp/tbltjvfUBbabGJZRN"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "transaction_id": "={{ $json.transaction_id }}",
+            "timestamp": "={{ $json.ingested_at }}",
+            "sender_id": "={{ $json.sender_id }}",
+            "recipient_id": "={{ $json.recipient_id }}",
+            "amount": "={{ $json.amount }}",
+            "transaction_type": "={{ $json.transaction_type }}",
+            "description": "={{ $json.description }}",
+            "status": "={{ $json.status }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "transaction_id",
+              "displayName": "transaction_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sender_id",
+              "displayName": "sender_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recipient_id",
+              "displayName": "recipient_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "amount",
+              "displayName": "amount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transaction_type",
+              "displayName": "transaction_type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pending",
+                  "value": "pending"
+                },
+                {
+                  "name": "analyzed",
+                  "value": "analyzed"
+                },
+                {
+                  "name": "case_created",
+                  "value": "case_created"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        -64
+      ],
+      "id": "743735f8-a79f-4aa5-a21f-9cc7c0de5fde",
+      "name": "Create Records (non-errors)",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "tKHYBbNRekBW1gG8",
+          "name": "AIRTABLE API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appA3QrSBzsMn8Mdp",
+          "mode": "list",
+          "cachedResultName": "Financial Fraud Detection",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbltjvfUBbabGJZRN",
+          "mode": "list",
+          "cachedResultName": "Transactions",
+          "cachedResultUrl": "https://airtable.com/appA3QrSBzsMn8Mdp/tbltjvfUBbabGJZRN"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "error",
+            "description": "={{ $('JavaScript Code').item.json.description }}",
+            "transaction_type": "={{ $('JavaScript Code').item.json.transaction_type }}",
+            "amount": "={{ $('JavaScript Code').item.json.amount }}",
+            "recipient_id": "={{ $('JavaScript Code').item.json.recipient_id }}",
+            "sender_id": "={{ $('JavaScript Code').item.json.sender_id }}",
+            "timestamp": "={{ $('JavaScript Code').item.json.ingested_at }}",
+            "transaction_id": "={{ $('JavaScript Code').item.json.transaction_id }}",
+            "error_reason": "={{ !$json.amount_valid ? \"Invalid amount\" : (!$json.type_valid ? \"Invalid transaction type: \" + $json.transaction_type : \"Unknown\") }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "transaction_id",
+              "displayName": "transaction_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sender_id",
+              "displayName": "sender_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "recipient_id",
+              "displayName": "recipient_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "amount",
+              "displayName": "amount",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "transaction_type",
+              "displayName": "transaction_type",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "pending",
+                  "value": "pending"
+                },
+                {
+                  "name": "analyzed",
+                  "value": "analyzed"
+                },
+                {
+                  "name": "case_created",
+                  "value": "case_created"
+                },
+                {
+                  "name": "error",
+                  "value": "error"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "error_reason",
+              "displayName": "error_reason",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        128
+      ],
+      "id": "8949c5bb-67c0-473f-b12e-c2da4cae9021",
+      "name": "Create Records (errors)",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "tKHYBbNRekBW1gG8",
+          "name": "AIRTABLE API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2a5b231c-623b-4510-b9d3-a1e5b5a4a027",
+              "leftValue": "={{ $json.amount_valid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "49f8d52e-ed1e-46b7-ba4d-63d52beb684e",
+              "leftValue": "={{ $json.type_valid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        576,
+        0
+      ],
+      "id": "eb0e08b5-3a0b-4d91-8af7-3abcc98de3d1",
+      "name": "Error handling (If)"
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/jhsklover/ai-capstone-financial-fraud-detection-system/main/data/transaction_records_test.csv",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "1ca47383-741d-4a83-ba60-06803a2ca2a4",
+      "name": "HTTP Request for CSV"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.all()[0].json.data;\n\nif (!raw || typeof raw !== \"string\") {\n  throw new Error(\"CSV not found as string in HTTP response\");\n}\n\nconst parseCSVLine = (line) => {\n  const result = [];\n  let current = \"\";\n  let inQuotes = false;\n\n  for (let char of line) {\n    if (char === '\"') {\n      inQuotes = !inQuotes;\n    } else if (char === ',' && !inQuotes) {\n      result.push(current);\n      current = \"\";\n    } else {\n      current += char;\n    }\n  }\n\n  result.push(current);\n  return result.map(v => v.trim().replace(/\"/g, ''));\n};\n\nconst csvText = raw.replace(/\\\\n/g, '\\n');\nconst lines = csvText.trim().split('\\n');\nconst headers = lines[0].split(',').map(h => h.trim());\n\nconst transactions = [];\n\nfor (let i = 1; i < lines.length; i++) {\n  const line = lines[i];\n  if (!line.trim()) continue;\n\n  const values = parseCSVLine(line);\n\n  const t = {};\n  headers.forEach((h, j) => {\n    t[h] = values[j];\n  });\n\n  const cleanedAmount = (t.amount || \"\").replace(/[^\\d.-]/g, '');\n  const parsedAmount = Number(cleanedAmount);\n\n  t.amount = Number.isFinite(parsedAmount) ? parsedAmount : null;\n  t.amount_valid = t.amount !== null;\n\n  const validTypes = [\"transfer\", \"deposit\", \"withdrawal\", \"payment\"];\n  t.transaction_type = (t.transaction_type || \"unknown\").toLowerCase();\n  t.type_valid = validTypes.includes(t.transaction_type);\n\n  t.ingested_at = t.ingested_at || \"\";\n\n  t.description =\n    `${t.transaction_type} transaction of $${t.amount ?? \"unknown\"} ` +\n    `from ${t.sender_id} to ${t.recipient_id}`;\n\n  t.status = \"pending\";\n\n  t.transaction_id = `TXN-${String(i).padStart(4, '0')}`;\n\n  transactions.push({ json: t });\n}\n\nreturn transactions;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "8944f357-2b2e-43cc-a22e-9c4524a7c3be",
+      "name": "JavaScript Code"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "49066532-65ba-4621-818e-7259007af7ab",
+      "name": "Manual Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error handling (If)": {
+      "main": [
+        [
+          {
+            "node": "Create Records (non-errors)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Records (errors)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request for CSV": {
+      "main": [
+        [
+          {
+            "node": "JavaScript Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JavaScript Code": {
+      "main": [
+        [
+          {
+            "node": "Error handling (If)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request for CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Records (non-errors)": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "753d2825-a846-4e3d-bee7-fb7ca848a9ab",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a69ec37954977b88a479ebfa185a30fc778ae1a13872bdbe9e26e7b8edafd875"
+  },
+  "id": "yVFIbYPpRyArScAA",
+  "tags": []
+}
