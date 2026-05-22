@@ -1,11 +1,11 @@
 # Case Management
-**Owner:** [Member Name] 
+**Owner:** Tejbir Singh
 ## Description 
-[Brief description of what this component does] 
+Takes the transactions that the anomaly detection workflow marked as anomalous and creates investigation cases.
 ## Status
-- [ ] Design complete
-- [ ] Sample data prepared
-- [ ] Initial implementation
-- [ ] Testing
-- [ ] Integration with other components
-- [ ] Documentation complete 
+- [X ] Design complete
+- [X ] Sample data prepared
+- [ X] Initial implementation
+- [ X] Testing
+- [ X] Integration with other components
+- [ X] Documentation complete 
