@@ -1,5 +1,5 @@
 # Anomaly Detection
-Owner: Joshua M
+Owner: Joshua Maldonado
 
 ## Description
 This component analyzes financial transactions to detect suspicious or fraudulent activity.
